@@ -5,6 +5,8 @@ import moment from 'moment';
 
 const Messages = (props) => {
   const { messages, otherUser, userId } = props;
+  // Put sort function on new line because it's an in place function and doesn't return a new array to be chained with map function + sorted messages from creation date 
+  messages.sort((msg1, msg2) => {return new Date(msg1.createdAt) < new Date(msg2.createdAt)? -1 : 1});
 
   return (
     <Box>
