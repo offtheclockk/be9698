@@ -61,10 +61,11 @@ const Home = ({ user, logout }) => {
       sender: data.sender,
     });
   };
-
-  const postMessage = (body) => {
+  
+  // saveMessage return is a Promise, needed to make sure it resolved
+  const postMessage = async (body) => {
     try {
-      const data = saveMessage(body);
+      const data = await saveMessage(body);
 
       if (!body.conversationId) {
         addNewConvo(body.recipientId, data.message);
@@ -80,14 +81,17 @@ const Home = ({ user, logout }) => {
 
   const addNewConvo = useCallback(
     (recipientId, message) => {
+      // Made a new variable so I didn't update state directly and changed previous use of old variable
+      const updatedConversations = [];
       conversations.forEach((convo) => {
         if (convo.otherUser.id === recipientId) {
           convo.messages.push(message);
           convo.latestMessageText = message.text;
           convo.id = message.conversationId;
         }
+        updatedConversations.push(convo);
       });
-      setConversations(conversations);
+      setConversations(updatedConversations);
     },
     [setConversations, conversations],
   );
