@@ -84,8 +84,10 @@ const Home = ({ user, logout }) => {
       // Made a new variable so I didn't update state directly and changed previous use of old variable
       const updatedConversations = [];
       conversations.forEach((convo) => {
+        const allMessages = [];
         if (convo.otherUser.id === recipientId) {
-          convo.messages.push(message);
+          allMessages.push(message);
+          convo.messages = allMessages;
           convo.latestMessageText = message.text;
           convo.id = message.conversationId;
         }
@@ -113,8 +115,10 @@ const Home = ({ user, logout }) => {
       // Made a new variable so I didn't update state directly and changed previous use of old variable
       const updatedConversations = [];
       conversations.forEach((convo) => {
+        const allMessages = [...convo.messages];
         if (convo.id === message.conversationId) {
-          convo.messages.push(message);
+          allMessages.push(message)
+          convo.messages = allMessages;
           convo.latestMessageText = message.text;
         }
         updatedConversations.push(convo);
