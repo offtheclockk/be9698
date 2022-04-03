@@ -20,5 +20,6 @@ export const theme = createMuiTheme({
   palette: {
     primary: { main: "#3A8DFF" },
     secondary: { main: "#B0B0B0" }
-  }
+  },
+  spacing: [0, 2, 6, 15, 20, 48],
 });
