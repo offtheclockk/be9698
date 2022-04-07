@@ -67,7 +67,6 @@ const Home = ({ user, logout }) => {
   const postMessage = (body) => {
     try {
       const data = saveMessage(body);
-      console.log(data);
 
       if (!body.conversationId) {
         addNewConvo(body.recipientId, data.message);
