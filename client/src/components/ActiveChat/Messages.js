@@ -11,17 +11,7 @@ const useStyles = makeStyles(() => ({
 
 const Messages = (props) => {
   const { messages, otherUser, userId } = props;
-  const classes = useStyles();
-
-  let ref = useRef();
-
-  const scrollToBottom = () => {
-    ref.current.scrollIntoView();
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [scrollToBottom]);
+  messages.sort((msg1, msg2) => {return new Date(msg1.createdAt) < new Date(msg2.createdAt)? -1 : 1});
 
   return (
     <Box className={classes.messageContainer}>
