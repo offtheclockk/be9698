@@ -101,9 +101,6 @@ const Home = ({ user, logout }) => {
     // Data is a Promise, needed to make sure it resolved
     async (data) => {
       // if sender isn't null, that means the message needs to be put in a brand new convo
-      const { message, sender = null } = data;
-      console.log(data);
-      if (sender !== null) {
       const { message } = await data;
       if (message.senderId === null) {
         const newConvo = {
