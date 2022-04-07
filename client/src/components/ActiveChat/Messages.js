@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
 
 const Messages = (props) => {
   const { messages, otherUser, userId } = props;
+  messages.sort((msg1, msg2) => {return new Date(msg1.createdAt) < new Date(msg2.createdAt)? -1 : 1});
   const classes = useStyles();
 
   let ref = useRef();
