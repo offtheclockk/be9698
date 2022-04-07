@@ -9,6 +9,7 @@ import {
   TextField,
   makeStyles,
   Paper,
+  InputAdornment,
 } from '@material-ui/core';
 import HomePage from './HomePage';
 
@@ -22,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   formButton: {
-    height: 70,
-    width: 150,
+    height: 60,
+    width: 190,
     fontSize: 20,
     fontWeight: 800,
     marginTop: '9%',
@@ -91,10 +92,10 @@ const Login = ({ user, login }) => {
             Don't have an account?
           </Typography>
           <Paper elevation={3}>
-            <Link href="/register" to="/register">
+            <Link href="/register" to="/register" className={classes.navButton}>
               <Button
-                className={classes.navButton}
                 color="primary"
+                className={classes.navButton}
               >
                 Create Account
               </Button>
@@ -148,15 +149,18 @@ const Login = ({ user, login }) => {
                     aria-label="password"
                     type="password"
                     name="password"
+                    InputProps={{
+                      endAdornment: <InputAdornment position="end">Forgot?</InputAdornment>,
+                    }}
                   />
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                size="large"
-                className={classes.formButton}>
-                Login
-              </Button>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.formButton}>
+                    Login
+                  </Button>
                 </FormControl>
               </Grid>
             </Grid>

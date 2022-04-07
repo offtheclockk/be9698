@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     background: "white",
     height: 50,
     width: 160,
+    textDecoration: "none",
   },
   formButton: {
     height: 70,
@@ -99,10 +100,10 @@ const Signup = ({ user, register }) => {
             Already have an account?
           </Typography>
           <Paper elevation={3}>
-            <Link href="/login" to="/login">
+            <Link href="/login" to="/login" className={classes.navButton}>
               <Button
-                className={classes.navButton}
                 color="primary"
+                className={classes.navButton}
               >
                 Login
               </Button>
