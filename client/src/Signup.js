@@ -202,4 +202,5 @@ const Signup = ({ user, register }) => {
   );
 };
 
+
 export default Signup;
