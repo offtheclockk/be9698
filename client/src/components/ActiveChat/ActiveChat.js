@@ -2,19 +2,17 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
 import { Input, Header, Messages } from './index';
+import {theme} from "../../themes/theme";
 
 const useStyles = makeStyles(() => ({
   root: {
-    display: 'flex',
-    flexGrow: 8,
-    flexDirection: 'column',
+    display: "grid",
+    gridTemplateRows: "100px calc(100vh - 100px)",
   },
   chatContainer: {
-    marginLeft: 41,
-    marginRight: 41,
+    margin: theme.spacing(0, 5),
     display: 'flex',
     flexDirection: 'column',
-    flexGrow: 1,
     justifyContent: 'space-between',
   },
 }));
@@ -25,7 +23,7 @@ const ActiveChat = ({
   activeConversation,
   postMessage,
 }) => {
-  const classes = useStyles();
+  const classes = useStyles(theme);
 
   const conversation = conversations
     ? conversations.find(

@@ -29,9 +29,24 @@ const useStyles = makeStyles(() => ({
     letterSpacing: -0.2,
     padding: 8,
   },
+  attachmentContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    maxWidth: "510px",
+  },
+  attachment: {
+    width: ({ imageCount }) => (imageCount === 1 ? "180px" : "160px"),
+    height: ({ imageCount }) => (imageCount === 1 ? "150px" : "130px"),
+    objectFit: "cover",
+    margin: ({ imageCount }) => (imageCount === 1 ? "5px 5px 0px 5px " : "5px"),
+
+    borderRadius: ({ imageCount, text }) =>
+      imageCount === 1 && text ? "10px 10px 0px 0px" : "10px 10px 0 10px",
+  },
+  multipleAttachments: {},
 }));
 
-const OtherUserBubble = ({ text, time, otherUser }) => {
+const OtherUserBubble = ({ text, time, otherUser, attachments }) => {
   const classes = useStyles();
 
   return (
@@ -46,7 +61,15 @@ const OtherUserBubble = ({ text, time, otherUser }) => {
           {otherUser.username} {time}
         </Typography>
         <Box className={classes.bubble}>
-          <Typography className={classes.text}>{text}</Typography>
+          {text && <Typography className={classes.text}>{text}</Typography>}
+          {attachments?.map((image, key) => (
+              <img
+                key={key}
+                className={classes.attachment}
+                src={image}
+                alt="Attachment not found"
+              />
+            ))}
         </Box>
       </Box>
     </Box>

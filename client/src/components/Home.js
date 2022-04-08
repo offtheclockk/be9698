@@ -11,6 +11,8 @@ import { SocketContext } from "../context/socket";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    display: "grid",
+    gridTemplateColumns: "400px 1fr",
   },
 }));
 
