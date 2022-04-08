@@ -76,7 +76,7 @@ const Input = ({ otherUser, conversationId, user, postMessage }) => {
       setText("");
       setImagesSelected([]);
     } else {
-      alert("No text or attachments.");
+      alert("");
     }
   };
 
@@ -88,9 +88,7 @@ const Input = ({ otherUser, conversationId, user, postMessage }) => {
       return axios.create().post(URL, formData);
     });
     const imagesRes = await Promise.all(imageArray);
-    const allImages = imagesRes.map(({ data }) => {
-      return data.url;
-    });
+    const allImages = imagesRes.map(({ data }) => data.url);
     return allImages;
   };
 

@@ -66,10 +66,10 @@ const SenderBubble = ({ time, text, attachments }) => {
           <Box className={classes.attachmentContainer}>
             {attachments?.map((image, key) => (
               <img
-                key={key}
+                key={image.attachments}
                 className={classes.attachment}
                 src={image}
-                alt="Attachment not found"
+                alt=""
               />
             ))}
           </Box>
