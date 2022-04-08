@@ -19,7 +19,8 @@ export const theme = createMuiTheme({
   },
   palette: {
     primary: { main: "#3A8DFF" },
-    secondary: { main: "#B0B0B0" }
+    secondary: { main: "#B0B0B0" },
+    gradient: {main: "#86B9FF"}
   },
   spacing: [0, 2, 6, 15, 20, 48],
 });
