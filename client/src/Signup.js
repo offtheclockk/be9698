@@ -167,6 +167,24 @@ const Signup = ({ user, register }) => {
                   </FormHelperText>
                 </FormControl>
               </Grid>
+              <Grid item>
+              <FormControl 
+              error={!!formErrorMessage.confirmPassword}
+              className={classes.formTextField}
+              >
+                <TextField
+                  label="Confirm Password"
+                  aria-label="Confirm Password"
+                  type="password"
+                  inputProps={{ minLength: 6 }}
+                  name="confirmPassword"
+                  required
+                />
+                <FormHelperText>
+                  {formErrorMessage.confirmPassword}
+                </FormHelperText>
+              </FormControl>
+            </Grid>
               <Button
                 className={classes.formButton}
                 type="submit"
